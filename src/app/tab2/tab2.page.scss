@@ -1,0 +1,25 @@
+.viewsCount {
+    margin: 9px;
+    font-size: 10px;
+    border-radius: 50pt;
+    color: #FFFFFF!important;
+    --color:#FFFFFF!important;
+    background-color: #2D2D2D;
+
+    ion-icon , ion-button{
+        --color:#FFFFFF!important;
+        font-size: 10px;
+        font-weight: 300;
+    }
+
+    ion-icon {
+        padding-right: 3px;
+        font-size: 15px;
+    }
+}
+
+
+
+ion-header {
+    --ion-background-color: transparent;
+}

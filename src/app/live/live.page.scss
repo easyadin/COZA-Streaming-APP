@@ -1,0 +1,132 @@
+.viewsCount {
+    position: absolute;
+    right: 0;
+    margin: 9px;
+    font-size: 10px;
+    border-radius: 50pt;
+    color: #ffffff !important;
+    --color: #ffffff !important;
+    background-color: #2d2d2d;
+
+    ion-icon,
+    ion-button {
+        --color: #ffffff !important;
+        font-size: 10px;
+        font-weight: 300;
+    }
+
+    ion-icon {
+        padding-right: 3px;
+        font-size: 15px;
+    }
+}
+
+ion-content {
+    --background: #2d2d2d;
+    height: 100vh;
+    overflow: hidden;
+    --overflow: hidden;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+
+    * {
+        --background: transparent;
+    }
+
+    ion-input,
+    ion-icon {
+        color: #ffffff;
+        outline-color: #ffffff;
+    }
+
+    ion-icon {
+        padding-left: 10px;
+    }
+}
+
+.videoOverlay {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(0, 0, 0);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 1) 100%);
+}
+
+.quickCommentContainer {
+    display: flex;
+    flex-direction: row;
+    --background: transparent;
+    background: none;
+    overflow-x: scroll;
+
+    ion-item {
+        margin-right: 10px;
+        background-color: rgba(45, 45, 45, 0.41);
+        border-radius: 50pt;
+        min-width: fit-content;
+
+        ion-label {
+            font-size: 12px;
+            color: #ffffff;
+        }
+    }
+}
+
+
+@keyframes love {
+    0% {
+        font-size: 0;
+        opacity: 0;
+        padding-left:10px;
+    }
+    25% {
+        font-size: 16px;
+        opacity: 1;
+    }
+    50% {
+        padding-left:0px;
+    }
+    75% {
+        font-size: 28px;
+        opacity: 1;
+    }
+    100% {
+        font-size: 32px;
+        opacity: 0;
+        line-height: 25px;
+    }
+}
+.heart {
+    position: absolute;
+    transform: translate(-15px, -90px);
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 50px;
+    height: 100px;
+    line-height: 100px;
+    vertical-align: bottom;
+    text-align: center;
+    color: red;
+    animation: love 0.6s infinite ease-in-out;
+}
+
+.commentsContainer {
+    width: 100%;
+    max-height: 200px;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    --background:transparent;
+    --ion-background-color: transparent;
+
+    ion-label {
+        font-weight: 400;
+        font-size: 12px;
+        color: #ffff;
+    }
+}

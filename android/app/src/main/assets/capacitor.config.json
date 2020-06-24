@@ -1,0 +1,17 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "coza",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "server": {
+    "url": "http://10.102.1.98:8100",
+    "originalUrl": "https://10.102.1.98:8100"
+  }
+}

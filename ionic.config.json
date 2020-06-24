@@ -1,5 +1,7 @@
 {
   "name": "coza",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
