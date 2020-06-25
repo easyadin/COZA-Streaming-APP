@@ -19,9 +19,11 @@ export class LivePage implements OnInit, OnDestroy {
 
   isShowingLove = false;
   quickCommentList = [];
-  comments = [];
-
+  comments; // array of any
+  views; // array of any
+  inputComment = '';
   private commentSubscription: Subscription;
+  private viewSubscription: Subscription;
 
   constructor(
     private streamService: StreamService,
@@ -33,15 +35,26 @@ export class LivePage implements OnInit, OnDestroy {
     this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.isYoutubeLink)
     this.quickCommentList = this.streamService.quickCommentList;
 
-    this.commentSubscription = this.streamService.commentRecieved.subscribe(comment =>{
-      this.comments = comment
+    this.commentSubscription = this.streamService.commentRecieved.subscribe(comments => {
+      this.comments = comments
     })
 
     this.streamService.getAllComments(); // retrieve all comments
+
+    // get view count
+    this.viewSubscription = this.streamService.viewUpdated.subscribe(views => {
+      this.views = 0
+      this.views = views
+
+    });
+
+    this.streamService.getViewCount(); // init view count
+
   }
 
   onMakeComment(comment) {
     this.streamService.postComment(comment)
+    this.inputComment = ''
   }
 
   onShowLove() {
@@ -55,6 +68,16 @@ export class LivePage implements OnInit, OnDestroy {
 
 
   ngOnDestroy(): void {
-   this.commentSubscription.unsubscribe(); 
+    this.commentSubscription.unsubscribe();
+    this.viewSubscription.unsubscribe();
+
+
+
+
   }
+
+  ionViewWillLeave() {
+    // this.streamService.disconnect();
+  }
+
 }
