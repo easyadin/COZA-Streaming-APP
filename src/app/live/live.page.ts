@@ -1,5 +1,5 @@
 import { StreamService } from './../services/stream.service';
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ViewChild, QueryList } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
@@ -25,6 +25,8 @@ export class LivePage implements OnInit, OnDestroy {
   private commentSubscription: Subscription;
   private viewSubscription: Subscription;
 
+  @ViewChild('player') videoPlayer;
+
   constructor(
     private streamService: StreamService,
     public sanitizer: DomSanitizer) { }
@@ -46,10 +48,12 @@ export class LivePage implements OnInit, OnDestroy {
       this.views = 0
       this.views = views
 
+
+      //play video
+      
     });
 
     this.streamService.getViewCount(); // init view count
-
   }
 
   onMakeComment(comment) {
@@ -70,14 +74,12 @@ export class LivePage implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.commentSubscription.unsubscribe();
     this.viewSubscription.unsubscribe();
-
-
-
-
   }
 
   ionViewWillLeave() {
     // this.streamService.disconnect();
   }
+
+
 
 }

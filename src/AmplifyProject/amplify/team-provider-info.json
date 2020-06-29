@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cozaglobalapp-dev-222622-authRole",
+            "UnauthRoleArn": "arn:aws:iam::250624077462:role/amplify-cozaglobalapp-dev-222622-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::250624077462:role/amplify-cozaglobalapp-dev-222622-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-cozaglobalapp-dev-222622-deployment",
+            "UnauthRoleName": "amplify-cozaglobalapp-dev-222622-unauthRole",
+            "StackName": "amplify-cozaglobalapp-dev-222622",
+            "StackId": "arn:aws:cloudformation:us-east-1:250624077462:stack/amplify-cozaglobalapp-dev-222622/0a481d40-ba36-11ea-a51a-0aac80a39b9b",
+            "AmplifyAppId": "d1w62q6n2d5de0"
+        }
+    }
+}

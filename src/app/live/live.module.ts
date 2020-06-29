@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -8,6 +8,8 @@ import { LivePageRoutingModule } from './live-routing.module';
 
 import { LivePage } from './live.page';
 
+import 'gl-ionic-background-video';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { LivePage } from './live.page';
     IonicModule,
     LivePageRoutingModule
   ],
-  declarations: [LivePage]
+  declarations: [LivePage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LivePageModule {}

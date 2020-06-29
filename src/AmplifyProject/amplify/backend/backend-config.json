@@ -1,0 +1,9 @@
+{
+	"video": {
+		"cozaglobalstream": {
+			"service": "video",
+			"serviceType": "livestream",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
