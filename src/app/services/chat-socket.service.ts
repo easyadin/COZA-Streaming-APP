@@ -11,7 +11,7 @@ export class ChatSocketService {
   socket: SocketIOClient.Socket;
 
   constructor() {
-    this.socket = io.connect(environment.ChatServer);
+    this.socket = io.connect(); // replace with firebase realtime 
    }
 
 

@@ -1,7 +1,10 @@
+
 import { StreamService } from './../services/stream.service';
-import { Component, OnInit, Input, OnDestroy, ViewChild, QueryList } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ViewChild, QueryList, ElementRef } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
+import videojs from 'video.js';
+import awsvideoconfig from './aws-video-exports.js'
 
 @Component({
   selector: 'app-live',
@@ -10,10 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class LivePage implements OnInit, OnDestroy {
   // test links
-  isYoutubeLink = "https://www.youtube.com/embed/7jkY0TZ0C5o?autoplay=0&showinfo=0&controls=0"
-  isYoutube = "true"
-  isRtsp = ""
-  isTestVideo = "blob:https://player.vimeo.com/6c0078dc-ef53-489c-9322-b10b3d6ddc2d"
+  streamOuput;
 
   @Input() urlSafe: SafeResourceUrl;
 
@@ -25,16 +25,33 @@ export class LivePage implements OnInit, OnDestroy {
   private commentSubscription: Subscription;
   private viewSubscription: Subscription;
 
-  @ViewChild('player') videoPlayer;
+  @ViewChild('target', { static: true }) target: ElementRef;
+  player: videojs.Player; //init player
+
+  // stream orientation
+  isPortrait = true;
+  isFullscreen
+  isPip
+
 
   constructor(
-    private streamService: StreamService,
-    public sanitizer: DomSanitizer) { }
+    private streamService: StreamService) { }
 
 
 
   ngOnInit() {
-    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.isYoutubeLink)
+    this.streamOuput = awsvideoconfig.awsOutputLiveLL;
+    // instantiate Video.js
+    this.player = videojs(this.target.nativeElement, {
+      fill: true,
+      sources: [{
+        src: this.streamOuput,
+        type:"application/x-mpegURL"
+      }]
+    });
+
+    this.player.play();
+
     this.quickCommentList = this.streamService.quickCommentList;
 
     this.commentSubscription = this.streamService.commentRecieved.subscribe(comments => {
@@ -47,10 +64,6 @@ export class LivePage implements OnInit, OnDestroy {
     this.viewSubscription = this.streamService.viewUpdated.subscribe(views => {
       this.views = 0
       this.views = views
-
-
-      //play video
-      
     });
 
     this.streamService.getViewCount(); // init view count
@@ -74,6 +87,10 @@ export class LivePage implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.commentSubscription.unsubscribe();
     this.viewSubscription.unsubscribe();
+    // destroy player
+    if (this.player) {
+      this.player.dispose();
+    }
   }
 
   ionViewWillLeave() {

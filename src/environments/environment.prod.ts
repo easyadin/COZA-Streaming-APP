@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  ChatServer: "https://coza-cs.herokuapp.com"
+  awsOutputLiveLL: "https://oo5f4g2ce5gdnb.data.mediastore.us-east-1.amazonaws.com/p/index.m3u8",
 };

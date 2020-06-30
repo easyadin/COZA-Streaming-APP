@@ -1,3 +1,5 @@
+
+
 .viewsCount {
     position: absolute;
     right: 0;
@@ -137,18 +139,41 @@ ion-content {
     }
 }
 
-// video {
-//     position: fixed;
-//     top: 50%;
-//     left: 50%;
-//     min-width: 100%;
-//     min-height: 100%;
-//     width: auto;
-//     height: auto;
-//     z-index: -100;
-//     transform: translateX(-50%) translateY(-50%);
-// asdas
+
+// // video {
+//      position: fixed;
+//      top: 50%;
+//      left: 50%;
+//      min-width: 100%;
+//      min-height: 100%;
+//      width: auto;
+//      height: auto;
+//      z-index: -100;
+//      transform: translateX(-50%) translateY(-50%);
+
 // }
 
+
+// video,.video-js {
+//     min-width: 100% !important;
+//     min-height: 100% !important;
+//     width: auto !important;
+//     height: auto !important;
+//     position: fixed!important;
+//     top: 50%!important;
+//     left: 50%!important;
+//     transform: translateX(-50%) translateY(-50%);
+//  }
+
+.portraitFullScreen {
+    position: fixed!important;
+    width: auto!important;
+    height: auto!important;
+    min-width: 100%!important;
+    min-height: 100%!important;
+    transform: translateX(-50%) translateY(-50%)!important;;
+    top: 50%!important;
+    left: 50%!important;
+}
 
 

@@ -5,19 +5,18 @@
 </ion-buttons>
 
 <ion-content [fullscreen]="true" force-overscroll="false">
-
   <!-- If youtube remove overlay effect -->
-  <div class="videoOverlay"></div>
+  <!-- <div class="videoOverlay"></div> -->
   <div class="heart" *ngIf="isShowingLove == true">♥</div>
-  <!-- <iframe width="100%" height="100%" [src]="urlSafe" frameborder="0" allowfullscreen></iframe> -->
+  <!-- <gl-background-video src="{{streamOuput}}" ></gl-background-video> -->
+  <!-- video -->
+ <video #target class="video-js" [ngClass]="{'portraitFullScreen': isPortrait == true}" playsinline preload="none" controls="false"></video> 
 
-  <gl-background-video src="http://play.streamaxia.com/streamaxia/ea23ecc15c3c8ced" mute="false"></gl-background-video>
-  
   <ion-footer class="footer ion-no-border">
     <ion-toolbar>
       <!-- comments -->
       <ion-list class="commentsContainer ion-padding">
-        <ion-label *ngFor="let comment of comments">{{comment}} </ion-label>
+        <ion-label *ngFor="let comment of comments">{{comment}}</ion-label>
       </ion-list>
       <!-- quick commenting -->
       <ion-list lines="none" class="quickCommentContainer">
@@ -41,3 +40,4 @@
     </ion-toolbar>
   </ion-footer>
 </ion-content>
+

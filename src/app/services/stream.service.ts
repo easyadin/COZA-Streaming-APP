@@ -1,6 +1,8 @@
+import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ChatSocketService } from './chat-socket.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,10 @@ import { ChatSocketService } from './chat-socket.service';
 export class StreamService {
 
   constructor(private charSocketService: ChatSocketService) { }
+
+  // live stream output
+  outputStream = environment.awsOutputLiveLL;
+
   // listen for new comment 
   commentRecieved = new Subject();
 
