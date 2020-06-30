@@ -6,6 +6,7 @@ import videojs from 'video.js';
 import awsvideoconfig from './aws-video-exports.js';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
+import { IonFab } from '@ionic/angular';
 
 @Component({
   selector: 'app-live',
@@ -17,11 +18,14 @@ export class LivePage implements OnInit, OnDestroy {
   private viewSubscription: Subscription;
 
   @ViewChild('target', { static: true }) target: ElementRef;
+  @ViewChild('fabRef', { static: false }) fabRef: IonFab;
+
   player: videojs.Player; //init player
 
   // stream orientation
   isOrientation = 'landscape'
-
+  // toggle giving options
+  
   constructor(private streamService: StreamService,
     private screenOrientation: ScreenOrientation,
     private streamingMedia: StreamingMedia) { }
@@ -51,7 +55,9 @@ export class LivePage implements OnInit, OnDestroy {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
 
-
+onFabClick() {
+    console.log(this.fabRef.activated);
+  }
 
 
   ngOnDestroy(): void {
