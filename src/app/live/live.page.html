@@ -9,35 +9,25 @@
   <!-- <div class="videoOverlay"></div> -->
   <div class="heart" *ngIf="isShowingLove == true">♥</div>
   <!-- <gl-background-video src="{{streamOuput}}" ></gl-background-video> -->
-  <!-- video -->
- <video #target class="video-js" [ngClass]="{'portraitFullScreen': isPortrait == true}" playsinline preload="none" controls="false"></video> 
+  <!-- video  [ngClass]="{'portraitFullScreen': isPortrait == true}"-->
+ <video #target class="video-js"  playsinline
+    controls="false"  poster="/src/assets/tvLogo.png"></video>
 
   <ion-footer class="footer ion-no-border">
     <ion-toolbar>
-      <!-- comments -->
-      <ion-list class="commentsContainer ion-padding">
-        <ion-label *ngFor="let comment of comments">{{comment}}</ion-label>
-      </ion-list>
-      <!-- quick commenting -->
-      <ion-list lines="none" class="quickCommentContainer">
-        <ion-item detail="false" *ngFor="let quickComment of quickCommentList" button
-          (click)="onMakeComment(quickComment)">
-          <ion-label>{{quickComment}}</ion-label>
-        </ion-item>
-      </ion-list>
       <ion-item class="interactionContainer">
-        <ion-input type="text" placeholder="Comment" (keydown.enter)="onMakeComment($event.target.value)"
-          [(ngModel)]="inputComment"></ion-input>
-        <ion-buttons>
+        <ion-buttons slot="end">
           <ion-button (click)="onShare()">
             <ion-icon name="share-social-outline"></ion-icon>
           </ion-button>
           <ion-button (click)="onShowLove()">
             <ion-icon name="heart-outline"></ion-icon>
           </ion-button>
+          <ion-button (click)="onShowLove()">
+            <ion-icon name="gift-outline"></ion-icon>
+          </ion-button>
         </ion-buttons>
       </ion-item>
     </ion-toolbar>
   </ion-footer>
 </ion-content>
-

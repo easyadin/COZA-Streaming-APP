@@ -49,42 +49,11 @@ export class StreamService {
     return [...this._views]
   }
 
-  // main comments
-  // Emit comment to server
-  postComment(comment: string) {
-    this.charSocketService.emit('chat', comment);
-  }
-
-  // Get all Comments from Server
-  getAllComments() {
-    this.charSocketService.listen('chat').subscribe((data) => {
-      this._allComments.push(data)
-      this.commentRecieved.next(this._allComments);
-    })
-  }
-
-
-  // Love reactions
-  postLove(love) {
-    this.charSocketService.emit('love', love);
-  }
-
-  getAllLoves(){
-    this.charSocketService.listen('love').subscribe((data) => {
-      // this._allComments.push(data)
-      // this.commentRecieved.next(this._allComments);
-    })
-  }
-
 
   // get view count
   getViewCount(){
-    this.charSocketService.listen('views').subscribe((data) => {
-      this._views = [];
-      this._views.push(Object.keys(data).length)
-      this.viewUpdated.next(this._views);
-      console.log(this._views)
-    })
+ 
+  
   }
 
 

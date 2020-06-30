@@ -165,6 +165,16 @@ ion-content {
 //     transform: translateX(-50%) translateY(-50%);
 //  }
 
+video, .video-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto!important;
+    height: auto!important;
+    min-width: 100%!important;
+    min-height: 100%!important;
+}
+
 .portraitFullScreen {
     position: fixed!important;
     width: auto!important;
