@@ -25,7 +25,8 @@ export class LivePage implements OnInit, OnDestroy {
   // stream orientation
   isOrientation = 'landscape'
   // toggle giving options
-  
+  isActivated = false;
+
   constructor(private streamService: StreamService,
     private screenOrientation: ScreenOrientation,
     private streamingMedia: StreamingMedia) { }
@@ -57,6 +58,7 @@ export class LivePage implements OnInit, OnDestroy {
 
 onFabClick() {
     console.log(this.fabRef.activated);
+    this.fabRef.activated === true ? this.isActivated = false : this.isActivated = true;
   }
 
 
