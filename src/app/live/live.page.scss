@@ -136,29 +136,6 @@ ion-content {
     }
 }
 
-// // video {
-//      position: fixed;
-//      top: 50%;
-//      left: 50%;
-//      min-width: 100%;
-//      min-height: 100%;
-//      width: auto;
-//      height: auto;
-//      z-index: -100;
-//      transform: translateX(-50%) translateY(-50%);
-
-// }
-
-// video,.video-js {
-//     min-width: 100% !important;
-//     min-height: 100% !important;
-//     width: auto !important;
-//     height: auto !important;
-//     position: fixed!important;
-//     top: 50%!important;
-//     left: 50%!important;
-//     transform: translateX(-50%) translateY(-50%);
-//  }
 
 video,
 .video-js {
@@ -188,17 +165,26 @@ video,
     top: 50%;
     transform: translate(-50%, -50%);
    
-
     ion-button {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255,.6);
         height: 60px;
         width: 100px;
         border-radius: 6px;
         font-weight: 600;
-        text-shadow:0 1px 1px rgba(0,0,0,.4);
-        box-shadow: (0 20px 30px rgba(0,0,0,.6));
-        backdrop-filter: grayscale(0.5) opacity(0.8) 
+        -webkit-backdrop-filter: grayscale(0.5) opacity(0.8);
+        backdrop-filter: grayscale(190) opacity(0);
+    
     }
+}
+
+
+.streamLogo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99999999999;
+    max-width: 70px;
+    width: 100%;
 }

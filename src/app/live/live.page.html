@@ -1,27 +1,25 @@
-<ion-buttons slot="primary" class="viewsCount">
-  <ion-button>
-    <ion-icon name="eye-outline"></ion-icon> {{views}}
-  </ion-button>
-</ion-buttons>
+<ion-img src="../../assets/tvLogo.png" class="streamLogo"></ion-img>
 
+</ion-buttons>
 <ion-content [fullscreen]="true" force-overscroll="false">
   <!-- If youtube remove overlay effect -->
   <!-- <div class="videoOverlay"></div> -->
   <div class="heart" *ngIf="isShowingLove == true">♥</div>
   <!-- <gl-background-video src="{{streamOuput}}" ></gl-background-video> -->
   <!-- video  [ngClass]="{'portraitFullScreen': isPortrait == true}"-->
-  <video #target class="video-js" playsinline controls="false" poster="/src/assets/tvLogo.png"></video>
+  <video #target class="video-js" playsinline controls="false" poster="/src/assets/tvLogo.png"
+    (dblclick)="onVideoDblClick()"></video>
 
   <!-- offering / tithe / seed-->
-  <ion-fab  #fabRef horizontal="end" vertical="bottom" slot="fixed">
+  <ion-fab #fabRef horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button color="light" (click)="onFabClick()">
       <ion-icon name="gift-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top" class="givingFab">
-    
+
     </ion-fab-list>
   </ion-fab>
- 
+
   <!-- giving options -->
   <ion-buttons class="givingButtons" [hidden]="isActivated === false">
     <ion-button>Offering</ion-button>
@@ -30,7 +28,7 @@
 
   </ion-buttons>
 
-  <ion-footer class="footer ion-no-border">
+  <!-- <ion-footer class="footer ion-no-border">
     <ion-toolbar>
       <ion-item class="interactionContainer">
         <ion-buttons slot="start">
@@ -40,5 +38,5 @@
         </ion-buttons>
       </ion-item>
     </ion-toolbar>
-  </ion-footer>
+  </ion-footer> -->
 </ion-content>
