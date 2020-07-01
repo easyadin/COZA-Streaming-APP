@@ -1,1 +1,30 @@
+.Logo {
+    max-width: 35px;
+    max-height: 35px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
 
+ion-header {
+    ion-icon {
+        font-size: 36px;
+    }
+}
+
+ion-tabs {
+    ion-tab-button {
+        &:nth-child(1) {
+            margin-left: -32px;
+        }
+        &:nth-child(2) {
+            margin-left: -64px;
+        }
+        &:nth-child(3) {
+            margin-right: -64px;
+        }
+        &:nth-child(4) {
+            margin-right: -32px;
+        }
+    }
+}

@@ -56,7 +56,7 @@ export class LivePage implements OnInit, OnDestroy {
     // instantiate Video.js
     this.player = videojs(this.target.nativeElement,
       {
-        fill: true,
+        // fill: true,
         sources: [{
           src: this.streamOuput,
           type: "application/x-mpegURL"
