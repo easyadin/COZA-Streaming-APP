@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatSocketService {
+  socket: SocketIOClient.Socket;
 
   constructor() {
 

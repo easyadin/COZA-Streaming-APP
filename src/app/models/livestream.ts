@@ -5,5 +5,16 @@ export class Livestream {
         public streamName: string,
         public programType: string,
         public ministerInCharge: string
+    )
+     { }
+
+}
+
+export class postStream {
+    constructor(
+        public streamURL: string,
+        public streamName: string,
+        public programType: string,
+        public ministerInCharge: string
     ) { }
 }
