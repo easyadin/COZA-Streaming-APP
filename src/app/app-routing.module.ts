@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },
+  {
+    path: 'stream-update',
+    loadChildren: () => import('./stream-update/stream-update.module').then( m => m.StreamUpdatePageModule)
+  },
 
 ];
 @NgModule({

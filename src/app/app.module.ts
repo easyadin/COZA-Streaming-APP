@@ -12,10 +12,12 @@ import { AppComponent } from './app.component';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { StreamingMedia } from '@ionic-native/streaming-media/ngx';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,],
   providers: [
     StatusBar,
     SplashScreen,

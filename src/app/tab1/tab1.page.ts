@@ -1,3 +1,4 @@
+import { VideoService } from './../services/video.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private videoService: VideoService) {}
 
+  videos = [];
+
+  ngOnInit(){
+    this.videoService.getChannelVideo().subscribe((videos) => {
+      // this.videos = videos.items[0].contentDetails.relatedPlaylists.uploads
+      console.log(videos)
+    })
+
+
+ 
+  }
 }
