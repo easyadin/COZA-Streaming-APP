@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>COZA Live Stream</ion-title>
     <ion-buttons slot="primary">
-      <ion-button color="primary" fill="outline">
+      <ion-button color="primary" fill="outline" (click)="onCreate()">
         <ion-icon name="add"></ion-icon>Add Live Stream
       </ion-button>
     </ion-buttons>
@@ -19,7 +19,7 @@
         <p>Stream URL : {{stream.value.streamURL}}</p>
       </ion-label>
       <ion-buttons>
-        <ion-button color="primary" fill="solid" (click)="onUpdate(stream.id)">Update</ion-button>
+        <ion-button color="primary" fill="solid" (click)="onUpdate(stream.key)">Update</ion-button>
         <ion-button color="light"  fill="solid" (click)="onDelete(stream.key)">Delete</ion-button>
       </ion-buttons>
     </ion-item>

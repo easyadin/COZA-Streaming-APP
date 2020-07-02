@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'stream-update',
     loadChildren: () => import('./stream-update/stream-update.module').then( m => m.StreamUpdatePageModule)
   },
+  {
+    path: 'newlivestream',
+    loadChildren: () => import('./newlivestream/newlivestream.module').then( m => m.NewlivestreamPageModule)
+  },
 
 ];
 @NgModule({

@@ -1,6 +1,8 @@
+import { NewlivestreamPage } from './../newlivestream/newlivestream.page';
 import { Livestream } from './../models/livestream';
 import { Component, OnInit } from '@angular/core';
 import { LivestreamService } from '../services/livestream.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-stream-update',
@@ -9,7 +11,8 @@ import { LivestreamService } from '../services/livestream.service';
 })
 export class StreamUpdatePage implements OnInit {
 
-  constructor(private livestreamService: LivestreamService) { }
+  constructor(private livestreamService: LivestreamService,
+    public modalController: ModalController) { }
 
   livestream = [];
 
@@ -20,12 +23,23 @@ export class StreamUpdatePage implements OnInit {
   }
 
 
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: NewlivestreamPage,
+    });
+    return await modal.present();
+  }
+
+  onCreate() {
+    this.presentModal()
+  }
+
   onUpdate(streamid) {
 
   }
 
   onDelete(streamid) {
-    this.livestreamService.deleteLiveStream(streamid).subscribe(data =>{
+    this.livestreamService.deleteLiveStream(streamid).subscribe(data => {
       console.log(data)
     })
   }
